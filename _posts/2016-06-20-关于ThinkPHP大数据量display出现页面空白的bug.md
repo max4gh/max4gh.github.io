@@ -5,6 +5,18 @@ date:   2016-06-22 12:13:22 +0800
 categories: php
 ---
 
+### 2016-06-24 最终解决更新
+> 问题出现的原因已找到！ 核心点是Nginx的fastcgi_temp 目录权限！
+> 
+> Nginx有一个的buffer机制是将来自FastCGI Server的Response缓冲到内存中，然后依次发送到客户端。缓冲区的大小由 fastcgi\_buffers 和 fastcgi\_buffer\_size 两个配置控制。
+> 如以下配置：
+> 
+> 	fastcgi_buffers      32 8K;
+> 	fastcgi_buffer_size  32K;
+> 
+> 
+> fastcgi\_buffers 控制 nginx 最多创建 32 个大小为 8K 的缓冲区，而 fastcgi\_buffer\_size 则是处理 Response 时第一个缓冲区的大小，不包含在前者中。所以总计能创建的最大内存缓冲区大小是 32*8K+32K = 288k。。如果Response 小于288k则缓存全部放在内存，如果 Response 大于 288k，多出来的数据会被临时写入到文件中，放在fastcgi\_temp这个目录下面。内存中缓冲了 288Kb，剩下的会写入的文件中。这个问题出现的原因在于，运行 Nginx 的用户并没有 fastcgi_temp 目录的读写权限，解决方法就是给fastcgi\_temp 目录赋读写权限可以解决问题。
+
 ### 1.问题重现
 	操作： 进入订单列表页面，选择每页显示2000条数据，然后点击查询
 	期待： 能正常显示数据
