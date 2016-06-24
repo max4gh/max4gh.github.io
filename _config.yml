@@ -14,7 +14,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://blog.corebao.com" # the base hostname & protocol for your site
 twitter_username: max4gh
 github_username:  max4gh
-desc: 使用Jekyll生成的文章
+desc: 用技术促进生产力发展！
 
 # Build settings
 markdown: kramdown
