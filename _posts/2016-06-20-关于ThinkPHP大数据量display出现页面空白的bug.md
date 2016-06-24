@@ -1,9 +1,15 @@
-##关于ThinkPHP大数据量display出现页面空白的bug
-###1.问题重现
+---
+layout: post
+title:  "关于ThinkPHP大数据量display出现页面空白的bug"
+date:   2016-06-22 12:13:22 +0800
+categories: php
+---
+
+### 1.问题重现
 	操作： 进入订单列表页面，选择每页显示2000条数据，然后点击查询
 	期待： 能正常显示数据
 	现状： 页面出现空白，无任何输出，亦无错误提示
-###2.问题排查
+### 2.问题排查
 通过 curl 请求：
 
 	 curl 'http://boss.fcuh.com/Order/index.html?order=order_id&order_by=desc&status=&page_size=2000&date_type=create_time&start_date=&end_date=&pay_type=-1&order_type=-1&keyword_type=order_id&keyword=' -H 'Accept-Encoding: gzip, deflate, sdch' -H 'Accept-Language: zh-CN,zh;q=0.8' -H 'Upgrade-Insecure-Requests: 1' -H 'User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.63 Safari/537.36' -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' -H 'Referer: http://boss.fcuh.com/Order/index.html' -H 'Cookie: pgv_pvi=4482610176; PHPSESSID=kme0c5v92qcap4ckgagr2eeoc5' -H 'Connection: keep-alive' --compressed
@@ -28,7 +34,7 @@
 首页发现的是Response Headers里面少了 Content-Length,接着google了一翻，具体可以参考这篇文章:[Nginx与HTTP协议 content-length](http://blog.csdn.net/sosospicy/article/details/9066547)。
 简单来讲就是，因为浏览器未能获取到服务传输数据是真实长度，所以浏览器在接收到部分数据的时候就断开了，导致接收到的数据不完整，不完整的数据，浏览器无法渲染，So, 页面就空白了。
 
-###3.调试
+### 3.调试
 a. 追踪到TP的页面输出代码：
 
 	/**
@@ -111,7 +117,7 @@ b. 因为本地测试Web服务器用的Apache,服务器用的是Nginx,所以考�
 可见，Content-Length:2690331 。数据量比较大，页面反应比较慢，财务那边使用反馈需要2-3分钟才能显示出来。
 查询数据这块，还有优化空间。
 
-###4. 总结
+### 4. 总结
 解决这个问题分两步
 
 1.设置http header 
