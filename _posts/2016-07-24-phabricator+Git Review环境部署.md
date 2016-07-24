@@ -128,7 +128,7 @@ categories: review
 ![](http://i.imgur.com/BzENz15.png)
 
 
-本文就先写到这里，以后再别行文记录下如果添加关联到现有的Git仓库以及如何进行Review。
+本文就先写到这里，以后再另行文记录下如果添加关联到现有的Git仓库以及如何进行Review。
 
 
 
