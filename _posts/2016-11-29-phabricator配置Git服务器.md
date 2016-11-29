@@ -130,3 +130,7 @@ categories: phabricator
 
 #### 5.问题
 如果出现了奇怪的问题，请检查
+
+	/etc/shadow
+	/etc/passwd
+	
