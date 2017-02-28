@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "使用Laravel构建CBAdmin后台（一）"
+title:  "使用Laravel构建CBAdmin后台"
 date:   2017-2-28 10:10:25 +0800
 categories: php
 ---
@@ -289,3 +289,5 @@ categories: php
 	Migrated: 2017_02_28_090206_create_role_menu_table
 
 至此权限系统所用到的数据表已经创建完毕。
+
+接下来就是根据表，实现相关的功能了，具体实现请关注 Github [https://github.com/max4gh/CBAdmin](https://github.com/max4gh/CBAdmin) 随时会更新完善。
