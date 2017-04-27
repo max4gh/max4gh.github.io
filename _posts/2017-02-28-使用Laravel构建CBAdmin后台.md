@@ -30,7 +30,7 @@ categories: php
 	
 执行以下命令：
 	
-	> cd cbadmin.local.fcuh.com
+	> cd www.cbadmin.com
 	> php artisan make:auth
 	Authentication scaffolding generated successfully.
 
