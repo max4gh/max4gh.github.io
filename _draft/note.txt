@@ -1,0 +1,50 @@
+docker
+1.仓库、镜像、容器、加速器
+2.Dockerfile
+2. 启动、进入、退出
+  docker exec -it  name   /bin/bash
+3. docker-compose docker-compodse.yml
+
+-------------------------------------
+
+幂等性
+匿名类保持变量 use
+后期静态绑定 static::
+redis 持久化
+AOF
+RDB 优选
+
+-------------------------------------
+
+1.maven创建项目
+2.pom配置（项目依赖、编码设置）
+3.springmvc配置
+4.日志配置
+5.mybatis配置
+6.数据库连接，查询
+7.权限验证配置
+
+-------------------------------------
+
+Git 版本回滚
+git reset --hard 版本号
+Git 还原文件
+git reset 版本号 file
+Git 删除远程分支
+git push origin :br_name
+
+-------------------------------------
+
+TP Fix BUG
+1. Model options maintain by add options getter and setter 
+
+2. Overwrite ViewModel getDbFields method to get ViewModel fields 
+
+-------------------------------------
+
+command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+比特币的账户地址其实就是用户公钥经过一系列 hash（HASH160，或先进行 SHA256，然后进行 RIPEMD160）及编码运算后生成的 160 位（20 字节）的字符串。
+
+-------------------------------------
