@@ -189,11 +189,6 @@ Composer 和 PHPUnit 的简单使用就是这样，在 composer.json 的
         "phpunit/phpunit": "^6.0"
     },
 
-这个依赖是可以去掉的，如果加上，在 vendor 目录的 bin 目录中就会生成以下两个文件：
-	
-	phpunit
-	phpunit.bat
-
 当我们的系统中没有安装到 phpunit 命令的时候，在测试时可以在根目录中可以使用这个命令测试：
 	
 	./vendor/bin/phpunit
